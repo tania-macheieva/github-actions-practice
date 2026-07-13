@@ -47,7 +47,7 @@ jobs:
               ref: develop
 
         - name: Update README with Badge
-            run: |
+          run: |
             BADGE="[![Build Status](https://github.com/${{ github.repository }}/actions/workflows/main.yml/badge.svg)](https://github.com/${{ github.repository }}/actions/workflows/main.yml)"
             
             if ! grep -qF "github.com/${{ github.repository }}/actions/workflows/main.yml/badge.svg" README.md; then
