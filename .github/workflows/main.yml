@@ -47,10 +47,10 @@ jobs:
               ref: develop
 
         - name: Update README with Badge
-          run: |
-              BADGE="[![Build Status](https://github.com/${{ github.repository }}/actions/workflows/workflow.yml/badge.svg)](https://github.com/${{ github.repository }}/actions/workflows/workflow.yml)"
-
-              if ! grep -qF "github.com/${{ github.repository }}/actions/workflows/workflow.yml/badge.svg" README.md; then
+            run: |
+            BADGE="[![Build Status](https://github.com/${{ github.repository }}/actions/workflows/main.yml/badge.svg)](https://github.com/${{ github.repository }}/actions/workflows/main.yml)"
+            
+            if ! grep -qF "github.com/${{ github.repository }}/actions/workflows/main.yml/badge.svg" README.md; then
                 echo -e "$BADGE\n\n$(cat README.md)" > README.md
                 
                 git config user.name "github-actions[bot]"
@@ -59,6 +59,6 @@ jobs:
                 git add README.md
                 git commit -m "docs: add build status badge"
                 git push origin develop
-              else
+            else
                 echo "Badge already exists."
-              fi
+            fi
